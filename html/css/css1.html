@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+            background-color: #000;
+            width: 70%;
+            height: 150px;
+        }
+        span{
+            color: rgb(64, 0, 255);
+            font-size: 30px;
+        }
+        input{
+            color: brown;
+        }
+        /* class name should be with . */
+        .heading1{
+            color: #02f996;
+        }
+          /* class name should be with # */
+        #div_id1{
+                color: blueviolet;
+                /* create space around the element without bg color. */
+                /* margin:20px; */
+
+                /*
+                    top & bottom = 20px;
+                    right & left = 25px;
+                  */
+                /* margin: 20px 25px; */
+
+                /*
+                    top  = 20px;
+                    right & left = 25px;
+                    bottom=10px;
+                  */
+                  margin: 20px 25px 10px;
+
+                   /*
+                    top  = 20px;
+                    right =25
+                    bottom=10px;
+                     left = 30px;
+                     EXAMPLE:Clock Wise direction
+                  */
+                  margin: 20px 25px 10px 30px;
+
+
+        }
+        #div_id2{
+            background-color: red;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            letter-spacing:10px;
+            width: 50%;
+            /* create space around the element with bg color. */
+            padding: 20px;;
+        }
+
+        .para{
+            line-height:20px;
+            width: 70%;
+            height: 100px;
+            background-color: #02f996;
+            overflow: scroll; 
+        }
+        .title{
+            text-decoration: underline;
+            text-decoration-color: red;
+        }
+        .clock{
+            /* element will be in the same position */
+            position: fixed;
+            top:15px;
+            right: 50px;
+            background-color: red;
+            padding: 10px;;
+            color: #fff;
+            font-size: 25px;
+        }
+        .clock2_parent{
+            position: relative;
+            background-color: #02f996;
+        }
+        .clock2{
+            position: absolute;
+            top:0px;
+            right: 150px;;
+        }
+.txt{
+    position: absolute;top: 0;left: 50px;padding:10px;color: #fff; background-color: red;
+}
+.ul-menu {
+    position: sticky;
+    top:15px;
+    background-color: #02f996;
+    padding: 10px;;
+}
+
+.ul-menu li{
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+   
+    <div class="clock">11:17</div>
+   
+    
+    <h1>sample heading</h1>
+    <span>this is span</span>
+    <ul class="ul-menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contqct</li>
+    </ul>
+    <h1>this is another h1</h1>
+    <h1 class="heading1">this is one more h1</h1>
+    <h2 class="heading1">this is h2</h2>
+    <input class="heading1" type="text">
+    <div id="div_id1">
+        efawfawfja;flkjw;fjkw;fjk
+    </div>
+    <div id="div_id2">
+        arfrwf
+    </div>
+    <div id="div_id2">
+        arfrwf
+    </div>
+    <h3 class="title">Sample Title</h3>
+    <p class="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia assumenda dolore sint quidem soluta! Blanditiis quo ex aspernatur tempore sit vitae optio asperiores similique debitis voluptas? Commodi molestiae dignissimos ex?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis tempora, reiciendis, odio assumenda quod culpa illum voluptatibus rerum quibusdam eius id nulla incidunt, minima ea fugiat quia corrupti totam vitae!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis odit praesentium dolores dignissimos sapiente quasi est reprehenderit, eos dolor quod repellat, sit ullam numquam suscipit laborum perferendis iste ab a
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae beatae ex a dignissimos molestias quaerat iusto ullam placeat, repellendus vitae rerum ipsa reprehenderit sed architecto, nostrum voluptas perspiciatis modi labore.
+    </p>
+    <div class="clock2_parent">
+        asr
+        <div class="clock clock2">11:17</div>
+    </div>
+    <div style="position: relative;">
+        <div class="txt">This is good </div>
+        <img style="width: 50%;height: 500px;;" src="https://cdn.britannica.com/74/114874-050-6E04C88C/North-Face-Mount-Everest-Tibet-Autonomous-Region.jpg" alt="">
+    </div>
+    
+</body>
+</html>
