@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent_div{
+            display: flex;            
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+        }
+        .parent_div > div{
+            width: 18%;
+            height: 50px;
+            border: 1PX solid red;
+            text-align: center;
+        }
+
+        @media screen and (max-width:600px) {
+            .parent_div > div{
+                width: 40%;
+            }
+            .parent_div{
+                
+                /* flex-direction: row; */
+            }    
+        }
+        @media screen and (max-width:300px) {
+            .parent_div > div{
+                width: 90%;
+            }
+           
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="parent_div">
+        <div class="title">child 1</div>
+        <div  class="title">child 2</div>
+        <div  class="title">child 3</div>
+        <div>child 4</div>
+        <div>child 5</div> 
+        <div>child 5</div> 
+        <div>child 5</div>   
+        <div>child 1</div>
+        <div>child 2</div>
+        <div>child 3</div>
+        <div>child 4</div>
+        <div>child 5</div> 
+        <div>child 5</div> 
+        <div>child 5</div>    
+    </div>
+
+
+</body>
+</html>
