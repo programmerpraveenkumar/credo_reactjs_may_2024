@@ -1,0 +1,81 @@
+header li{
+    display: inline-block;
+    margin: 10px;
+}
+header li a{
+    font-size: 20px;
+    text-decoration: none;
+}
+header{
+        display: flex;
+        background-color: aliceblue;
+}
+header ul{
+    width: 45%;
+}
+header a:hover{
+    text-decoration: underline;
+}
+header .input{
+    padding: 10px;;
+}
+header button.input:hover{
+    background-color: aqua;
+}
+header .input:focus-visible {
+  outline-color: red;
+}
+.content{
+    display: flex;
+    margin: 15px 0;
+}
+.content > div{
+    width: 25%;
+    border: 1px solid;
+    height: 550px;;
+}
+.content .center-content{
+    width: 40%;
+    text-align: center;
+    background-color: aqua;
+}
+.content .right-content{
+        font-size: 20px;;
+}
+footer p{
+        text-align: center;
+        background-color: aliceblue;
+        padding: 20px;;
+        font-size: 20px;;
+        margin: 0;
+        color: rgb(9, 254, 9);
+}
+header img{
+    display: none;
+}
+@media screen and (max-width:600px) {
+    header{
+     flex-direction: column;
+    }
+    header img{
+            display: block;
+            width: 10%;
+            height: 50px;
+    }
+    header li{
+        display: block;
+    }
+    .content{
+        flex-direction: column;
+    }
+    header ul{
+        display: none;
+    }
+    header.menu-show ul{
+        display: block;
+    }
+   .content .center-content, .content > div {
+        width: 100%;
+        height: auto;;
+    }
+}
