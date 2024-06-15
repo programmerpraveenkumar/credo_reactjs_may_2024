@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        stores the key value pair.
+        key should be unique,
+        if key is duplicates,it will override the value.
+        
+        */
+        var personDetail = {
+            "name":"some name",
+            "mobile":64646,
+            "address":"some address"
+        }
+        personDetail['country'] = 'ereerfeferfe';
+        console.log(personDetail);
+        console.log(personDetail['address']);//access the value using key
+        for(var k in personDetail){
+            console.log(k,personDetail[k]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

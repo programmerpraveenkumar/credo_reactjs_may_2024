@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var -> global scope
+        var firstName = 'sfdf';
+        var firstName = 'sfdfsdfdsf';
+        firstName = 'asdfads';
+
+        //let -- block scope
+        let lastname = 'adf';
+        // let lastname = 'adf';//error redeclare not possible
+        lastname ='dff';
+
+        const mobile_no = 45454545;
+        // mobile_no = 544554;//error
+        // const mobile_no= 4644;//error
+
+        function sample(){
+            firstName = 'inside function';
+            let lastname = 'adfsd';
+            console.log(firstName,lastname);
+        }
+        sample();
+        console.log(firstName,lastname);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

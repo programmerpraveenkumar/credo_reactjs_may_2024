@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // document.write('<h1>defgef</h1>')
+        // document.write('<h1>dewefweffgef</h1>');
+        function printMessage(){
+            //read the value from the input
+            let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+val+"</h1>";
+            
+            // console.log(div_1);
+        }
+    </script>
+</head>
+<body>
+
+  <div id="div_id">
+    <div>efgergr</div>
+    <h1>this is   html1</h1>
+  </div>
+  <input type="text" id="input_1">
+<button onclick="printMessage()">click me</button>
+</body>
+<script>
+    
+</script>
+</html>
