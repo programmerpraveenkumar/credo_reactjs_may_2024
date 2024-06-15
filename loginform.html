@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // document.write('<h1>defgef</h1>')
+        // document.write('<h1>dewefweffgef</h1>');
+        function login(){
+            //read the value from the input
+            let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+
+            let input_2 = document.getElementById('input_2');
+            let val2 = input_2.value;
+
+            let input_3 = document.getElementById('input_3');
+            let val3 = input_3.value;
+
+            let msg = '';
+            if(val == ''){
+                    msg = 'pls enter username';
+            }else if(val2 == ''){
+                msg = 'pls enter password';
+            }else if(val3 == '' || isNaN(val3) ){
+                msg = 'pls enter proper mobile no';
+            }else if(val3.length != 10 ){
+                msg = 'mobile no length should be 10';
+            }else{
+                msg = 'everything is fine';
+            }         
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+msg+"</h1>";
+            // console.log(div_1);
+        }
+        function mobile_validate(){         
+            let msg = ''
+            let input_3 = document.getElementById('input_3');
+            let val3 = input_3.value;
+            if(val3 == '' || isNaN(val3) ){
+                msg = 'pls enter proper mobile no';
+                input_3.focus();
+            }else if(val3.length != 10 ){
+                msg = 'mobile no length should be 10';
+                input_3.focus();
+            }    
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+msg+"</h1>";
+            // console.log(div_1);
+        }
+        function pwd_validate(){         
+            let msg = '';
+            let input = document.getElementById('input_2');
+            let val3 = input.value;
+            if(val3.length <8 || val3.length >15 ){
+                msg = 'pwd length should be 8 to 15';
+                input.focus();
+            }    
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+msg+"</h1>";
+            // console.log(div_1);
+        }
+        function usr_validate(){        
+            let input = document.getElementById('input_1');
+            console.log(input.value);
+        }
+  
+    </script>
+</head>
+<body>
+
+  <input type="text" onkeydown="usr_validate()" placeholder="Enter Username" id="input_1">
+  <input type="text" onkeyup="pwd_validate()" placeholder="Enter Password"  id="input_2">
+  <input type="text" onblur="mobile_validate()" placeholder="Enter Mobile"  id="input_3">
+<button onclick="login()">Login</button>
+<div id="div_id"></div>
+</body>
+<script>
+    
+</script>
+</html>
