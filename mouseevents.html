@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sample(){
+            console.log("sample");
+        }
+        function sample1(){
+           // console.log("sample1");
+        }
+        function sample2(){
+            console.log("sample2");
+        }
+        function sample3(){
+            //console.log("sample3");
+        }
+    </script>
+</head>
+<body>
+    <h1 id="h1_id">this is heading tag</h1>
+    <h1 >this is heading tag</h1>
+    <h1 id="h1_id1" onmousedown="sample1()">this is onmouse down tag</h1>
+    <h1 class="h1_cls1">this is onmouseenter tag</h1>
+    <button id="btn_id">Click btn</button>
+</body>
+<script>
+
+    document.getElementById("h1_id").addEventListener('mouseover',()=>{
+        console.log("adding event");
+        sample();
+    });
+
+    document.getElementById("h1_id1").addEventListener('mousedown',()=>{
+        console.log("adding event1");
+        sample2();
+    });
+
+    document.querySelector(".h1_cls1").addEventListener('mousedown',()=>{
+        console.log("adding event1");
+    });
+
+    document.querySelector("#btn_id").addEventListener('click',()=>{
+        console.log("click event1");
+    });
+</script>
+</html>

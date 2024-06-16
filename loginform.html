@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+         .red{
+            border: 5px solid red;
+        }
+    </style>
     <script>
         // document.write('<h1>defgef</h1>')
         // document.write('<h1>dewefweffgef</h1>');
@@ -68,7 +73,10 @@
             let input = document.getElementById('input_1');
             console.log(input.value);
         }
-  
+        function changeValue() {
+            let selObj = document.getElementById("sel");
+            console.log(selObj.value);
+        }
     </script>
 </head>
 <body>
@@ -76,10 +84,50 @@
   <input type="text" onkeydown="usr_validate()" placeholder="Enter Username" id="input_1">
   <input type="text" onkeyup="pwd_validate()" placeholder="Enter Password"  id="input_2">
   <input type="text" onblur="mobile_validate()" placeholder="Enter Mobile"  id="input_3">
-<button onclick="login()">Login</button>
+
+  <button>Login</button>
 <div id="div_id"></div>
+<select onchange="changeValue()" name="" id="sel">
+    <option value="1">Value1 </option>
+    <option value="2">Value2 </option>
+    <option value="3">Value3 </option>
+    <option value="4">Value4 </option>
+</select>
 </body>
 <script>
-    
+    document.querySelector("button").addEventListener('click',()=>{
+        //login();
+            let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+
+            let input_2 = document.getElementById('input_2');
+            let val2 = input_2.value;
+
+            let input_3 = document.getElementById('input_3');
+            let val3 = input_3.value;
+            input_1.classList.remove('red');
+            input_2.classList.remove('red');
+            input_3.classList.remove('red');
+
+            let msg = '';
+            if(val == ''){
+                    msg = 'pls enter username';
+                    input_1.classList.add('red')
+            }else if(val2 == ''){
+                msg = 'pls enter password';
+                input_2.classList.add('red')
+            }else if(val3 == '' || isNaN(val3) ){
+                msg = 'pls enter proper mobile no';
+                input_3.classList.add('red');
+            }else if(val3.length != 10 ){
+                msg = 'mobile no length should be 10';
+                input_3.classList.add('red')
+            }else{
+                msg = 'everything is fine';
+            }         
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+msg+"</h1>";
+    })
 </script>
 </html>

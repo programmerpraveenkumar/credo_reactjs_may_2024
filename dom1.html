@@ -56,12 +56,27 @@
             
             // console.log(div_1);
         }
+        function changeValue() {
+            let input_1 = document.getElementById('sel');
+            let val = input_1.value;
+            if(val =='Add'){
+                add();
+            }else if(val == 'Sub'){
+                sub();
+            }
+        }
     </script>
 </head>
 <body>
 
   <input type="text" id="input_1">
   <input type="text" id="input_2">
+  <select onchange="changeValue()" name="" id="sel">
+    <option>Add </option>
+    <option>Sub </option>
+    <option>Mul </option>
+    <option>Div </option>
+</select>
 <button onclick="add()">Add</button>
 <button onclick="sub()">Sub</button>
 <button onclick="mul()">Mul</button>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    .red{
+        color:red;
+    }
+    .blue{
+        color: blue;
+    }
+    .hide{
+        display: none;
+    }
+  </style>
+</head>
+<body>
+    <h1 id="h1_id" class="red">this is heading tag</h1>   
+    <button id="btn_id">Red or Blue btn</button>
+
+    <div>
+        <h1>show or hide</h1>
+        <button id="s_h">click me</button>
+    </div>
+</body>
+<script>
+document.querySelector("#s_h").addEventListener('click',()=>{
+    document.querySelector('div h1').classList.toggle('hide');
+});
+    document.querySelector("#btn_id").addEventListener('click',()=>{
+        let cls = document.getElementById("h1_id").classList;
+        if(cls.contains('red')){
+            cls.remove('red');
+            cls.add('blue');
+        }else{
+            cls.remove('blue');
+            cls.add('red');
+        }
+    });
+
+    
+</script>
+</html>
