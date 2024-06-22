@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function getUserData(){
+            let pageNo = document.getElementById("pageNo").value;
+           let response = await fetch("https://reqres.in/api/users?page="+pageNo,{"method":"GET"});
+            let json = await response.json();//extract the json response
+           console.log(json);
+           //document.getElementById("response").innerHTML = JSON.stringify(json['data']);
+           let tmp = '';
+           if(json['data'].length == 0){
+            tmp = '<h1>No user found</h1>';
+           }
+            for(let index in json['data']){
+                tmp += `<h1>${json['data'][index]['first_name']}-- ${json['data'][index]['email']}</h1><img src="${json['data'][index]['avatar']}"/>`;//string literal
+                console.log(json['data'][index]['first_name']+" "+json['data'][index]['email']);
+            }
+            document.getElementById("response").innerHTML = tmp;
+        }
+
+        function add(a,b){
+            return a+b;
+        }
+        let res = add(10,15);
+
+    </script>
+</head>
+<body>
+    <select name="" onchange="getUserData()" id="pageNo">
+        <option value="1">Page 1</option>
+        <option value="2">Page 2</option>
+        <option value="3">Page 3</option>
+        <option value="4">Page 4</option>
+    </select>
+    <button onclick="getUserData()">get user data</button>
+    <div id="response"></div>
+</body>
+</html>
+<!-- 
+1.rest api gives the response in the json format
+2.url with endpoint needed to call the rest api
+3.http method(GET or  POST)
+4.wht data needs to send to server.
+-->
