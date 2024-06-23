@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function postUserData(){  
+            let data = {
+               "name": "some user",
+                "job": "manager"
+            }         
+           let response = await fetch("https://reqres.in/api/users",{"method":"POST","body":JSON.stringify(data),headers:{"content-type":"application/json"}});
+            let json = await response.json();//extract the json response
+           console.log(json);
+        }
+
+    </script>
+</head>
+<body>  
+    <button onclick="postUserData()">get user data</button> 
+</body>
+</html>
+<!-- 
+1.rest api gives the response in the json format
+2.url with endpoint needed to call the rest api
+3.http method(GET or  POST)
+4.wht data needs to send to server.
+-->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Animal{
+            name;
+            printName(){
+                console.log(this.name);
+            }
+        }
+        class Lion extends Animal{
+
+        }
+        class Elephant extends Animal{
+            printName(){
+                console.log("child ",this.name);
+            }
+        }
+
+        let lion = new Lion();
+        lion.name = "Lion";
+        lion.printName();
+
+        let ele = new Elephant();
+        ele.name = "Elephant";
+        ele.printName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

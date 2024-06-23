@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .red{
+            border: 5px solid red;
+        }
+    .input_ele{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .input_ele input{
+           margin:5px;   
+    }
+    .error_txt{
+        color: red;
+    }
+    </style>
+   
+</head>
+<body>
+<div class="input_ele">
+    <div>
+        <input type="text"  placeholder="Enter Username" id="input_1">
+        <span id="input_1_error" class="error_txt"></span>
+    </div>
+
+    <div>
+    <input type="text"   placeholder="Enter Password" id="input_2">
+    <span id="input_2_error" class="error_txt"></span>
+    </div>
+    
+
+  
+    <button>Login</button>
+</div>
+  
+<div id="div_id"></div>
+
+</body>
+<script>
+    document.querySelector("button").addEventListener('click',async ()=>{
+        //login();
+            let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+
+            let input_2 = document.getElementById('input_2');
+            let val2 = input_2.value;
+
+           
+            input_1.classList.remove('red');
+            input_2.classList.remove('red');
+            document.getElementById('input_1_error').innerHTML ="";
+            document.getElementById('input_2_error').innerHTML ="";
+            let msg = '';
+            if(val == ''){
+                    // msg = 'pls enter username';
+                    input_1.classList.add('red');
+                    document.getElementById('input_1_error').innerHTML = "pls enter username";
+            }else if(val2 == ''){
+                msg = 'pls enter password';
+                input_2.classList.add('red');
+                document.getElementById('input_2_error').innerHTML = "pls enter password";
+            }            
+             else{
+                let data = {
+                    "email":val ,
+                    "password": val2
+                }         
+                let response = await fetch("https://reqres.in/api/login",{"method":"POST","body":JSON.stringify(data),headers:{"content-type":"application/json"}});
+                let json = await response.json();//extract the json response
+                console.log(json);
+                console.log(response.ok);
+                let div_1 = document.getElementById('div_id');
+
+                //for success response
+                if(response.ok){
+                    div_1.innerHTML= "<h1>"+json['token']+"</h1>";
+                }else{                    
+                    div_1.innerHTML= "<h1>"+json['error']+"</h1>";
+                }
+                 //will replace the content of the div
+                
+                  //div_1.innerHTML= "<h1>"+JSON.stringify(json)+"</h1>";
+             }         
+            
+    })
+</script>
+</html>
