@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 
+        documet.getElementById("div_id").innerHTML = 'sdfasdf';
+        $("#div_id").html("<h1>sdfdsfadf</h1>")
+    -->
+    <script>
+        $( document ).ready(function() {
+            $("#h1_id").html("sampl3").click(()=>{
+                console.log("h1 is clicked...");
+            }).addClass("red");
+
+            $("button#red").click(()=>{
+                $("#h1_id").removeClass("red")
+            })
+             $("button#read").click(()=>{
+                let v = $("#input").val();
+                console.log(v);
+            })
+        })       
+
+      </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1_id"></h1>
+    <button id="red">Remove red</button>
+    <input type="text" name="" id="input">
+    <button id="read">Read</button>
+  
+   
+</body>
+</html>

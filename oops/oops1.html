@@ -16,23 +16,55 @@
                 getData(){
                     return "this is sample js";
                 }
+               
                 add(){
-                    //accessing the global variables using `this`
-                    console.log(this.a+this.b);
-                }
-                sub(){
-                    console.log(this.a-this.b);
-                }
+            //read the value from the input
+            let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+            let input_2 = document.getElementById('input_2');
+            let val2 = input_2.value;
+
+            let res = parseInt(val)+parseInt(val2);
+
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+res+"</h1>";
+            // console.log(div_1);
+        }
+        sub(){
+          let input_1 = document.getElementById('input_1');
+            let val = input_1.value;
+            
+            let input_2 = document.getElementById('input_2');
+            let val2 = input_2.value;
+
+            let res = parseInt(val)-parseInt(val2);
+
+            let div_1 = document.getElementById('div_id');
+            //will replace the content of the div
+            div_1.innerHTML= "<h1>"+res+"</h1>";
+        }
             }
             //create obejct for the class.
              let s = new Sample(10,15);
             //  let str = s.getData();//call the method from the object
-             s.add();
-             s.sub();
+            //  s.add();
+            //  s.sub();
             // console.log(str);
     </script>
 </head>
 <body>
-    
+    input type="text" id="input_1">
+  <input type="text" id="input_2">
+  <select onchange="changeValue()" name="" id="sel">
+    <option>Add </option>
+    <option>Sub </option>
+    <option>Mul </option>
+    <option>Div </option>
+</select>
+<button onclick="s.add()">Add</button>
+<button onclick="s.sub()">Sub</button>
+
+<div id="div_id"></div>
 </body>
 </html>
