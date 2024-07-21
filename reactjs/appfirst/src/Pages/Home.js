@@ -1,8 +1,11 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 
 export default function Home(){
     let firstname = "afwfdf";
     let mobileNo = "8498464";
+    let inputRef = useRef();
+    let input1Ref = useRef();
+    let pageNoRef = useRef();
    
     //state variable by using hook
     const[name,setName] = useState('this is state variable');
@@ -21,22 +24,29 @@ export default function Home(){
         {name:"city7"}
     ])
     const getApi=async ()=>{
-        let res = await fetch("https://reqres.in/api/users",{method:"GET"});
+        let res = await fetch("https://reqres.in/api/users?page="+pageNoRef.current.value,{method:"GET"});
         let json  = await res.json();
         console.log(json);
         setUserList(json['data']);
     }
 
     const postApi=async ()=>{
+        console.log(inputRef.current.value);
+        console.log(input1Ref.current.value)
         let data = {
-            "email": "eve.holt@reqres.in",
-            "password": "pistol"
+            "email": inputRef.current.value,
+            "password": input1Ref.current.value
         }
         let res = await fetch("https://reqres.in/api/register",
-            {method:"POST",body:JSON.stringify(data),headers:{'content-type':"application/json"}}
+            {method:"POST",body:JSON.stringify(data),
+            headers:{'content-type':"application/json"}}
         );
         let json  = await res.json();
         console.log(json);        
+    }
+    const getValue=()=>{
+        console.log(inputRef.current.value);
+        console.log(input1Ref.current.value)
     }
 
     return(
@@ -49,6 +59,7 @@ export default function Home(){
             })
         }
         ---------------
+        {userList.length == 0?<h1>No User found</h1>:null}
         {
             userList.map((ele,index)=>{
                     return (
@@ -61,8 +72,18 @@ export default function Home(){
             })
         }
         ---------------
+        <select ref={pageNoRef} onChange={()=>getApi()}>
+            <option value="1"> Page 1</option>
+            <option value="2"> Page 2</option>
+            <option value="3"> Page 3</option>
+            <option value="4"> Page 4</option>
+
+        </select>
         <h1>{name}</h1>
         <h1>{firstname}</h1>
+        <input type="text" ref={input1Ref} placeholder='Enter Name'/>
+        <input type="text" ref={inputRef} placeholder='Enter message'/>
+        <button onClick={()=>{getValue()}} >Get Value</button>
         <h2>Name is {firstname} and his Mobile no is {mobileNo}</h2>
         <h1>this is home component</h1>
         <button onClick={()=>{printMessage()}} >Click me</button>
