@@ -1,8 +1,15 @@
 import Header from "./Header";
+import { useDispatch, useSelector } from "react-redux";
 
 export function About() {
-    return (
-        <>
+  const calc = useSelector((state)=>state.INC_DEC);//to access the redux state
+  const dispatch = useDispatch();//to update the state in redux
+    return(
+    <>
+       <h1>redux value {calc}</h1>
+       <button onClick={()=>dispatch({"type":"INC"})}>INC</button>
+       <button onClick={()=>dispatch({"type":"DEC"})}>DEC</button>
+    
         <Header pageName='about'/>
            <div id="about" class="about-us section">
         <div class="container">
